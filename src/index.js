@@ -1,6 +1,5 @@
 import {BreakingBad} from "./api/breakingBad";
 import * as d3 from "d3";
-import { select } from "d3";
 
 document.addEventListener("DOMContentLoaded", null)
 
@@ -27,11 +26,11 @@ document.getElementById("button").addEventListener("click", genQuote);
       };
     }
   const animationTime = 500;
-  const loaderRadius = 40;
-  const loaderColor = '#ccc';
+  const loaderRadius = 60;
+  const loaderColor = '#135c09';
   
   var arc = d3.arc()
-      .innerRadius(0)
+      .innerRadius(20)
       .outerRadius(loaderRadius);
   
   let svg = d3.select("svg"),
@@ -65,6 +64,13 @@ document.getElementById("button").addEventListener("click", genQuote);
 
 
   function genQuote(){
+    
+    if (document.getElementById("quoteCharacter") != null){
+      document.getElementById("quoteCharacter").remove()
+    }
+    if (document.getElementById("imgCharacter") != null){
+      document.getElementById("imgCharacter").remove()
+    }
     const main = document.getElementById("main");
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
     svg.setAttribute('width', '400');
@@ -72,7 +78,9 @@ document.getElementById("button").addEventListener("click", genQuote);
     main.appendChild(svg);
     f();
     const div = document.createElement("div");
+    div.setAttribute("id", "quoteCharacter");
     const img = document.createElement("img");
+    img.setAttribute("id", "imgCharacter");
     div.hidden= true;
     img.hidden= true;
     const bb = new BreakingBad();
@@ -88,8 +96,9 @@ document.getElementById("button").addEventListener("click", genQuote);
         
         )
         div.innerHTML = quote + " (C) " + author
-        main.appendChild(div);
-        main.appendChild(img);
+
+          main.appendChild(div);
+          main.appendChild(img);
         })
         setTimeout(() => {myResolve(); }, "5000")
         
