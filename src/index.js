@@ -38,6 +38,13 @@ document.getElementById("button").addEventListener("click", genQuote);
       height = +svg.attr("height"),
       g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
   
+      svg.append("rect")
+      .attr("x",  width / 2-10)
+      .attr("y", height / 2-loaderRadius+10)
+      .attr("width", 20)
+      .attr("height", loaderRadius-10)
+      .style("fill", "#ffffff");
+      
   var loader = g.append("path")
       .datum({endAngle: 0, startAngle: 0})
       .style("fill", loaderColor)
