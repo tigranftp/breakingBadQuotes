@@ -1,6 +1,5 @@
 import {BreakingBad} from "./api/breakingBad";
-import * as d3 from "d3";
-import { select } from "d3";
+import * as d3 from 'https://unpkg.com/d3?module';
 
 document.addEventListener("DOMContentLoaded", null)
 
