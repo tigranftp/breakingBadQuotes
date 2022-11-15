@@ -1,5 +1,6 @@
 import {BreakingBad} from "./api/breakingBad";
 import * as d3 from "d3";
+import { select } from "d3";
 
 document.addEventListener("DOMContentLoaded", null)
 
@@ -65,7 +66,7 @@ document.getElementById("button").addEventListener("click", genQuote);
 
   function genQuote(){
     const main = document.getElementById("main");
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "qsvg")
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
     svg.setAttribute('width', '400');
     svg.setAttribute('height', '400');
     main.appendChild(svg);
