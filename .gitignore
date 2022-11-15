@@ -2,4 +2,3 @@ node_modules
 .idea
 .parcel-cache
 dist
-docs
